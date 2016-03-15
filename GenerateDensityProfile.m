@@ -50,4 +50,4 @@ close all
 figure(1)
 plot(z_TTilde_vec,n_vec_TTilde)
 
-%save('UnitaryFakeProfile','z_TTilde_vec','n_vec_TTilde');
+save('UnitaryFakeProfile');

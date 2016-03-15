@@ -1,5 +1,5 @@
 function [ TTilde_vec, CV_vec, PTilde_vec, KappaTilde_vec, mu_EF_vec ] ...
-    = SimulatedUnitarity( )
+    = SimulatedUnitarity( );
 %SimulatedUnitarity Simulated quantities for the EOS at unitarity
 % The backbone of this program is the theory data for the normalized
 % specific heat vs. T/TF.
@@ -18,7 +18,7 @@ TcTilde = 0.17;
 %% load theory data for normalized CV curve
 load('CVTheory_extended.mat');
 %CV_vec = CV_vec';
-CV_vec = CV_vec;
+CV_vec = CV_vec(1:10^5);
 
 %% T/TF vector
 [Jump_Value,TC_index] = max(abs(diff(CV_vec)));
