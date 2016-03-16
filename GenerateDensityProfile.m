@@ -4,8 +4,8 @@
 %% Input parameters
 
 % Select T/TF and density in center of trap
-TTilde0 = 0.05;
-n0 = 10^(15); % in 1/m^3
+TTilde0 = 0.1;
+n0 = 10^(16); % in 1/m^3
 
 % Select axial trapping frequency
 omega_y = 2*pi * 23.9;
@@ -50,4 +50,4 @@ close all
 figure(1)
 plot(z_TTilde_vec,n_vec_TTilde)
 
-save('UnitaryFakeProfile');
+save('UnitaryFakeProfile_T0_1');
