@@ -1,4 +1,4 @@
-function [ TTilde_vec, CV_vec, PTilde_vec, KappaTilde_vec, mu_EF_vec ] ...
+function [ TTilde_vec, CV_vec, PTilde_vec, KappaTilde_vec, mu_EF_vec, BetaMu_vec ] ...
     = SimulatedUnitarity( );
 %SimulatedUnitarity Simulated quantities for the EOS at unitarity
 % The backbone of this program is the theory data for the normalized
@@ -6,8 +6,8 @@ function [ TTilde_vec, CV_vec, PTilde_vec, KappaTilde_vec, mu_EF_vec ] ...
 %
 
 %% include path for virial expansion and ideal EOS
-addpath('/Users/Julian/Documents/MIT/MatlabPrograms/VirialExpansion')
-addpath('/Users/Julian/Documents/MIT/MatlabPrograms/IdealFermiEOS')
+addpath('/Users/RanchoP/Dropbox (MIT)/Github/VirialExpansion')
+addpath('/Users/RanchoP/Dropbox (MIT)/Github/IdealFermiEOS')
 
 %% Bertsch parameter
 xi = 0.37;
@@ -60,32 +60,32 @@ mu_EF_vec = TTilde_vec.* BetaMu_vec;
 
 figure(1)
 subplot(3,1,1);
-plot(TTilde_vec,CV_vec)
+plot(TTilde_vec,CV_vec,'k')
 xlabel ('$T/T_\mathrm{F}$','interpreter','latex','FontSize',16)
 ylabel ('$C_\mathrm{V}/N k_\mathrm{B}$','interpreter','latex','FontSize',16)
 hold on
-plot(TTilde_ideal,CV_NkB_ideal)
+plot(TTilde_ideal,CV_NkB_ideal,'r')
 hold off
 xlim([0 1.2])
 
 subplot(3,1,2);
-plot(PTilde_vec,KappaTilde_vec)
+plot(PTilde_vec,KappaTilde_vec,'k')
 xlabel ('$P/P_0$','interpreter','latex','FontSize',16)
 ylabel ('$\kappa/\kappa_0$','interpreter','latex','FontSize',16)
 hold on
-plot(PTilde_Virial,KappaTilde_Virial)
-plot(PTilde_ideal,KappaTilde_ideal)
+plot(PTilde_Virial,KappaTilde_Virial,'g')
+plot(PTilde_ideal,KappaTilde_ideal,'r')
 hold off
 xlim([0 5])
 
 subplot(3,1,3);
-plot(TTilde_vec,mu_EF_vec)
+plot(TTilde_vec,mu_EF_vec,'k')
 xlabel ('$T/T_\mathrm{F}$','interpreter','latex','FontSize',16)
 ylabel ('$\mu/E_\mathrm{F}$','interpreter','latex','FontSize',16)
 xlim([0.1 1.6])
 hold on
-plot(TTilde_Virial,TTilde_Virial.*BetaMu_vec_Virial)
-plot(TTilde_ideal,TTilde_ideal.*beta_mu_vec_ideal)
+plot(TTilde_Virial,TTilde_Virial.*BetaMu_vec_Virial,'g')
+plot(TTilde_ideal,TTilde_ideal.*beta_mu_vec_ideal,'r')
 hold off
 
 %subplot(2,2,4);
